@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gunicorn'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,10 +64,9 @@ WSGI_APPLICATION = 'curator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'curator',
-        'USER': 'spencercooley',
-        'PASSWORD': 'pearberry1',
-        'HOST': '127.0.0.1',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db_1',
         'PORT': '5432',
     }
 }
@@ -95,4 +95,4 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "/Users/spencercooley/Desktop/static_test"
+STATIC_ROOT = os.path.join(BASE_DIR, "prod_static")
